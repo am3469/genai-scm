@@ -54,7 +54,7 @@ python -m src.risk.simulate \
 # 7) dashboard
 streamlit run src/app/app.py
 
-
+Architecture
 flowchart LR
   A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
   B --> C[Processed tables: data/processed/*]
@@ -65,7 +65,7 @@ flowchart LR
   F --> G[Simulator: src/risk/simulate.py]
   G --> H[Streamlit App: src/app/app.py]
 
-
+Repository Structure
 .
 ├── src
 │   ├── app/        # Streamlit (app.py)
@@ -81,3 +81,7 @@ flowchart LR
 ├── requirements.txt
 ├── README.md
 └── Makefile
+
+
+Tech Stack
+Python 3.11, Pandas, NumPy, scikit-learn, XGBoost, Streamlit, Pydantic, PyArrow, SQLAlchemy.
