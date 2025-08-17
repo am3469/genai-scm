@@ -55,6 +55,9 @@ python -m src.risk.simulate \
 streamlit run src/app/app.py
 
 Architecture
+
+
+```mermaid
 flowchart LR
   A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
   B --> C[Processed tables: data/processed/*]
