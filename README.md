@@ -38,3 +38,31 @@ python -m src.risk.simulate --sales data/processed/sales_daily.csv --inventory d
 
 # 7) app
 streamlit run src/app/app.py
+
+
+flowchart LR
+  A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
+  B --> C[Processed tables: data/processed/*]
+  C --> D[Backtest: src/forecast/backtest.py]
+  D --> E[Forecasts: models/forecasts.*]
+  C --> F[Policy: src/optimize/policy.py]
+  E --> F
+  F --> G[Simulator: src/risk/simulate.py]
+  G --> H[Streamlit App: src/app/app.py]
+
+
+.
+├── src
+│   ├── app/        # Streamlit (app.py)
+│   ├── etl/        # prepare.py
+│   ├── forecast/   # backtest.py
+│   ├── optimize/   # policy.py
+│   └── risk/       # simulate.py
+├── data
+│   ├── raw/        # put retail.csv here (gitignored)
+│   └── processed/  # ETL outputs, policy, sim outputs (gitignored)
+├── models/         # forecasts (gitignored)
+├── reports/        # metrics (WAPE/sMAPE)
+├── requirements.txt
+├── README.md
+└── Makefile
