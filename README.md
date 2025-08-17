@@ -4,7 +4,7 @@
 Turn raw retail data into **forecasts**, **reorder policies (ROP / Target-S / EOQ)**, a **scenario simulator** (lead-time ×, demand spikes, supplier outages), and a **Streamlit dashboard** for decisions.
 
 ## Why this is interesting
-- Business KPI focus: **fill rate, stockout days, orders, on-hand**
+- Business KPIs: **fill rate, stockout days, orders, avg on-hand**
 - Practical constraints: **lead times, MOQ, supplier mapping**
 - Clear pipeline: **ETL → backtest → policy → simulate → app**
 
@@ -54,6 +54,7 @@ python -m src.risk.simulate \
 # 7) dashboard
 streamlit run src/app/app.py
 
+
 flowchart LR
   A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
   B --> C[Processed tables: data/processed/*]
@@ -80,13 +81,3 @@ flowchart LR
 ├── requirements.txt
 ├── README.md
 └── Makefile
-
-
-
-### Two tiny extras (optional but great)
-- In the repo’s **About** (right side), set the description to:  
-  `ETL → forecasting → inventory policy → scenario simulator → Streamlit dashboard.`
-- Add topics: `supply-chain`, `forecasting`, `inventory-optimization`, `time-series`, `streamlit`, `python`.
-
-If anything still renders as plain text, ensure each block starts with three backticks (```), like ```bash, ```mermaid, or ```text, and ends with three backticks.
-::contentReference[oaicite:0]{index=0}
