@@ -18,7 +18,7 @@ conda activate genai-scm
 pip install -r requirements.txt
 
 # 2) put your raw file
-# data/raw/retail.csv  (CSV or Parquet)
+data/raw/retail.csv  (CSV or Parquet)
 
 # 3) ETL → processed tables (+ optional SQLite)
 python -m src.etl.prepare --raw data/raw/retail.csv --out data/processed --make-db
