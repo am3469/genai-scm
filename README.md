@@ -54,7 +54,6 @@ python -m src.risk.simulate \
 # 7) dashboard
 streamlit run src/app/app.py
 
-``markdown
 ## 🧭 Architecture
 ```mermaid
 flowchart LR
