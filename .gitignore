@@ -1,2 +1,4 @@
 .DS_Store
 Project_final/
+models/*.parquet
+models/*.csv
