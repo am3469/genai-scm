@@ -3,22 +3,25 @@
 **Akhila Madanapati** • Repo: `am3469/genai-scm`  
 End-to-end project that turns raw retail data into **forecasts**, **reorder policies (ROP/Target-S/EOQ)**, a **scenario simulator** (lead-time ×, demand spikes, supplier outages), and a **Streamlit dashboard**.
 
-> **What you get**
-> - ETL → clean daily tables  
-> - Baseline forecasts + backtest metrics (WAPE, sMAPE)  
-> - Policy recommendations (per Store × SKU) with safety stock & MOQ  
-> - Simulator KPIs (fill rate, stockout days, orders)  
-> - Streamlit UI to explore + download action plans (PO CSV)
+**What you get**
+- ETL → clean daily tables  
+- Baseline forecasts + backtest metrics (WAPE, sMAPE)  
+- Policy recommendations (per Store × SKU) with safety stock & MOQ  
+- Simulator KPIs (fill rate, stockout days, orders)  
+- Streamlit UI to explore + download action plans (PO CSV)
 
 ---
 
+## 🔧 Quickstart
+
+```bash
 # 1) environment
 conda create -n genai-scm python=3.11 -y
 conda activate genai-scm
 pip install -r requirements.txt
 
 # 2) put your raw file
-data/raw/retail.csv  (CSV or Parquet)
+# data/raw/retail.csv  (CSV or Parquet)
 
 # 3) ETL → processed tables (+ optional SQLite)
 python -m src.etl.prepare --raw data/raw/retail.csv --out data/processed --make-db
@@ -35,14 +38,3 @@ python -m src.risk.simulate --sales data/processed/sales_daily.csv --inventory d
 
 # 7) app
 streamlit run src/app/app.py
-
-
-flowchart LR
-  A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
-  B --> C[Processed tables: data/processed/*]
-  C --> D[Backtest: src/forecast/backtest.py]
-  D --> E[Forecasts: models/forecasts.*]
-  C --> F[Policy: src/optimize/policy.py]
-  E --> F
-  F --> G[Simulator: src/risk/simulate.py]
-  G --> H[Streamlit App: src/app/app.py]
