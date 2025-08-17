@@ -3,3 +3,4 @@ Project_final/
 models/*.parquet
 models/*.csv
 data/processed/policy_recs.*
+data/processed/sim_*.csv
