@@ -54,9 +54,8 @@ python -m src.risk.simulate \
 # 7) dashboard
 streamlit run src/app/app.py
 
-Architecture
-
-
+``markdown
+## 🧭 Architecture
 ```mermaid
 flowchart LR
   A[Raw data: data/raw] --> B[ETL: src/etl/prepare.py]
@@ -68,7 +67,9 @@ flowchart LR
   F --> G[Simulator: src/risk/simulate.py]
   G --> H[Streamlit App: src/app/app.py]
 
-Repository Structure
+```markdown
+## 📂 Repository Structure
+```text
 .
 ├── src
 │   ├── app/        # Streamlit (app.py)
