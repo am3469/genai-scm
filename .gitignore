@@ -2,3 +2,4 @@
 Project_final/
 models/*.parquet
 models/*.csv
+data/processed/policy_recs.*
